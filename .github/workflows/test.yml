@@ -1,4 +1,4 @@
-name: dotnet package
+name: Test Code
 
 on: [push]
 

@@ -9,6 +9,12 @@ public class Stack<T>
         array = new T[maxsize];
     }
 
+    public Stack(int maxsize)
+    {
+        this.maxsize = maxsize;
+        array = new T[maxsize];
+    }
+
     public void Push(T item)
     {
         this.array[top++] = item;
@@ -16,11 +22,19 @@ public class Stack<T>
 
     public T Pop()
     {
+        if (IsEmpty())
+        {
+            throw new IndexOutOfRangeException("Cannot pop an empty stack");
+        }
         return this.array[top--];
     }
 
     public T Peek()
     {
+        if (IsFull())
+        {
+            throw new IndexOutOfRangeException("Cannot push to a full stack");
+        }
         return this.array[top - 1];
     }
 
@@ -34,15 +48,4 @@ public class Stack<T>
         return this.top == this.maxsize;
     }
 
-    public Stack(int maxsize)
-    {
-        this.maxsize = maxsize;
-        array = new T[maxsize];
-    }
-
-    public int add(int x, int y)
-    {
-        //throw new NotImplementedException("Not implemented");
-        return x + y;
-    }
 }

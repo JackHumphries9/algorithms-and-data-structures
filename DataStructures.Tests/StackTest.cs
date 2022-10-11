@@ -36,4 +36,63 @@ public class StackTest
 
         Assert.True(teststack.Peek() == 20);
     }
+
+
+    [Fact]
+    public void TestIsEmptyTrue()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>();
+
+        Assert.True(teststack.IsEmpty());
+    }
+
+    [Fact]
+    public void TestIsEmptyFalse()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>();
+
+        teststack.Push(2);
+
+        Assert.False(teststack.IsEmpty());
+    }
+
+    [Fact]
+    public void TestIsFullFalse()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>();
+
+        teststack.Push(2);
+
+        Assert.False(teststack.IsFull());
+    }
+    [Fact]
+    public void TestIsFullTrue()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>(3);
+
+        teststack.Push(2);
+        teststack.Push(3);
+        teststack.Push(4);
+
+
+        Assert.True(teststack.IsFull());
+    }
+    [Fact]
+    public void TestNoEmptyPop()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>();
+
+        Assert.Throws<IndexOutOfRangeException>(() => teststack.Pop());
+    }
+
+    [Fact]
+    public void TestFullPush()
+    {
+        DataStructures.Stack<int> teststack = new DataStructures.Stack<int>(2);
+
+        teststack.Push(1);
+        teststack.Push(2);
+
+        Assert.Throws<IndexOutOfRangeException>(() => teststack.Push(3));
+    }
 }
