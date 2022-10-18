@@ -4,6 +4,8 @@
   <h3 align="center">Algorithms And Data Structures Library</h3>
 </p>
 
+[![Test Code](https://github.com/JackHumphries9/algorithms-and-data-structures/actions/workflows/test.yml/badge.svg)](https://github.com/JackHumphries9/algorithms-and-data-structures/actions/workflows/test.yml)
+
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
