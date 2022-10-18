@@ -23,7 +23,16 @@ public class Queue<T>
         }
 
         this.array[this.head] = value;
-        this.head++;
+
+        if (this.head == maxsize - 1)
+        {
+            this.head = 0;
+        }
+        else
+        {
+            this.head++;
+        }
+
         this.numItems++;
     }
     public T Dequeue()
@@ -32,8 +41,19 @@ public class Queue<T>
         {
             throw new IndexOutOfRangeException("Cannot Dequeue on an empty queue");
         }
+
         var t = this.array[this.tail];
-        this.tail++;
+
+        if (this.tail == maxsize - 1)
+        {
+            this.tail = 0;
+        }
+        else
+        {
+            this.tail++;
+        }
+
+
         this.numItems--;
         return t;
     }
@@ -50,5 +70,15 @@ public class Queue<T>
     public Boolean IsEmpty()
     {
         return this.numItems == 0;
+    }
+
+    public int Count()
+    {
+        return numItems;
+    }
+
+    public String AsString()
+    {
+        return String.Join(", ", this.array.Select(i => i.ToString()).ToArray());
     }
 }
