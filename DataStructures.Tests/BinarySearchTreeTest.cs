@@ -17,9 +17,11 @@ public class BinarySearchTreeTest
         return root;
     }
 
-    [Fact]
-    public void TestAssert()
-    {
-        Assert.True(true);
-    }
+    // [Fact]
+    // public void TestInsertItem()
+    // {
+    //     var bstree = new BinarySearchTree<int>();
+    //     bstree.InsertItem(12);
+    //     Assert.True(true);
+    // }
 }

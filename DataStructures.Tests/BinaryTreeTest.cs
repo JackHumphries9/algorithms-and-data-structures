@@ -23,13 +23,9 @@ public class BinaryTreeTest
         var root = createTestTree();
 
         var tree = new BinaryTree<Char>(root);
-        var buffer = "";
-        tree.PreOrder(ref buffer);
-
-        buffer = buffer.Substring(0, buffer.Length - 2);
 
         //throw new Exception(buffer);
-        Assert.True(buffer == "A, B, D, E, H, C, F, G");
+        Assert.True(tree.PreOrder() == "A, B, D, E, H, C, F, G");
     }
     [Fact]
     public void TestInOrder()
@@ -37,26 +33,16 @@ public class BinaryTreeTest
         var root = createTestTree();
 
         var tree = new BinaryTree<Char>(root);
-        var buffer = "";
-        tree.InOrder(ref buffer);
-
-        buffer = buffer.Substring(0, buffer.Length - 2);
-        Assert.True(buffer == "D, B, E, H, A, F, C, G");
+        Assert.True(tree.InOrder() == "D, B, E, H, A, F, C, G");
     }
     [Fact]
     public void TestPostOrder()
     {
         var root = createTestTree();
 
-
         var tree = new BinaryTree<Char>(root);
-        var buffer = "";
-        tree.PostOrder(ref buffer);
 
-        buffer = buffer.Substring(0, buffer.Length - 2);
-
-        //throw new Exception(buffer);
-        Assert.True(buffer == "D, H, E, B, F, G, C, A");
+        Assert.True(tree.PostOrder() == "D, H, E, B, F, G, C, A");
     }
 
 }

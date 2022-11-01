@@ -5,7 +5,7 @@ namespace DataStructures;
 public class Node<T> where T : IComparable
 {
     private T data;
-    public Node<T> Left, Right;
+    public Node<T>? Left, Right;
 
     public Node(T item)
     {
@@ -32,66 +32,83 @@ public class BinaryTree<T> where T : IComparable
         root = node;
     }
 
-    public string PreOrder(ref string buff, Node<T>? node = null)
+    public string PreOrder()
     {
-        if (node == null)
+        var buffer = "";
+        if (this.root != null)
         {
-            node = this.root;
+            this.preOrder(ref buffer, this.root);
         }
+        buffer = buffer.Substring(0, buffer.Length - 2);
+        return buffer;
+    }
 
+    private string preOrder(ref string buff, Node<T> node)
+    {
         buff = buff + node.Data.ToString() + ", ";
 
         if (node.Left != null)
         {
-            this.PreOrder(ref buff, node.Left);
+            this.preOrder(ref buff, node.Left);
         }
 
         if (node.Right != null)
         {
-            this.PreOrder(ref buff, node.Right);
+            this.preOrder(ref buff, node.Right);
         }
 
         return buff;
     }
 
-    public string InOrder(ref string buff, Node<T>? node = null)
+    public string InOrder()
     {
-        if (node == null)
+        var buffer = "";
+        if (this.root != null)
         {
-            node = this.root;
+            this.inOrder(ref buffer, this.root);
         }
+        buffer = buffer.Substring(0, buffer.Length - 2);
+        return buffer;
+    }
 
+    private string inOrder(ref string buff, Node<T> node)
+    {
         if (node.Left != null)
         {
-            this.InOrder(ref buff, node.Left);
+            this.inOrder(ref buff, node.Left);
         }
 
         buff = buff + node.Data.ToString() + ", ";
 
         if (node.Right != null)
         {
-            this.InOrder(ref buff, node.Right);
+            this.inOrder(ref buff, node.Right);
         }
-
 
         return buff;
     }
 
-    public string PostOrder(ref string buff, Node<T>? node = null)
+    public string PostOrder()
     {
-        if (node == null)
+        var buffer = "";
+        if (this.root != null)
         {
-            node = this.root;
+            this.postOrder(ref buffer, this.root);
         }
+        buffer = buffer.Substring(0, buffer.Length - 2);
+        return buffer;
+    }
 
+    private string postOrder(ref string buff, Node<T> node)
+    {
         if (node.Left != null)
         {
-            this.PostOrder(ref buff, node.Left);
+            this.postOrder(ref buff, node.Left);
         }
 
         if (node.Right != null)
         {
-            this.PostOrder(ref buff, node.Right);
+            this.postOrder(ref buff, node.Right);
         }
 
         buff = buff + node.Data.ToString() + ", ";
