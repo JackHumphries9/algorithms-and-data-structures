@@ -22,6 +22,15 @@ public class BinarySearchTreeTest
     {
         var bstree = new BinarySearchTree<int>();
         bstree.InsertItem(12);
-        Assert.True(true);
+        Assert.True(bstree.InOrder() == "12");
+    }
+    [Fact]
+    public void TestInsertItems()
+    {
+        var bstree = new BinarySearchTree<int>();
+        bstree.InsertItem(12);
+        bstree.InsertItem(6);
+        bstree.InsertItem(18);
+        Assert.Equal("6, 12, 18", bstree.InOrder());
     }
 }

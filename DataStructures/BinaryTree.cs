@@ -38,8 +38,8 @@ public class BinaryTree<T> where T : IComparable
         if (this.root != null)
         {
             this.preOrder(ref buffer, this.root);
+            buffer = buffer.Substring(0, buffer.Length - 2);
         }
-        buffer = buffer.Substring(0, buffer.Length - 2);
         return buffer;
     }
 
@@ -66,8 +66,8 @@ public class BinaryTree<T> where T : IComparable
         if (this.root != null)
         {
             this.inOrder(ref buffer, this.root);
+            buffer = buffer.Substring(0, buffer.Length - 2);
         }
-        buffer = buffer.Substring(0, buffer.Length - 2);
         return buffer;
     }
 
@@ -94,8 +94,8 @@ public class BinaryTree<T> where T : IComparable
         if (this.root != null)
         {
             this.postOrder(ref buffer, this.root);
+            buffer = buffer.Substring(0, buffer.Length - 2);
         }
-        buffer = buffer.Substring(0, buffer.Length - 2);
         return buffer;
     }
 

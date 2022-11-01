@@ -14,25 +14,33 @@ public class BinarySearchTree<T> : BinaryTree<T> where T : IComparable
 
     private void insertItem(T item, ref Node<T>? tree)
     {
-        if (tree == null)
+        if (this.root == null)
         {
             this.root = new Node<T>(item);
             return;
         }
 
-        if (tree.Data.CompareTo(item) == 0)
+        if (tree == null)
+        {
+            tree = new Node<T>(item);
+            return;
+        }
+
+        var comp = tree.Data.CompareTo(item);
+
+        if (comp == 0)
         {
             throw new Exception("Cannot add the same item into a Binary Search Tree");
         }
 
-        if (tree.Data.CompareTo(item) > 1)
-        {
-            insertItem(item, ref tree.Right);
-        }
-
-        if (tree.Data.CompareTo(item) < 1)
+        if (comp > 0)
         {
             insertItem(item, ref tree.Left);
+        }
+
+        if (comp < 0)
+        {
+            insertItem(item, ref tree.Right);
         }
     }
 }
