@@ -129,7 +129,8 @@ public class QueueTest
         Assert.True(testq.Dequeue() == 8 && testq.Count() == 0);
     }
 
-    public void Stress()
+    [Fact]
+    public void TestStress()
     {
         var testq = new Queue<int>(3);
 
@@ -155,7 +156,7 @@ public class QueueTest
 
         testq.Enqueue(8);
 
-        Assert.True(testq.Count() == 0 && testq.Dequeue() == 8);
+        Assert.True(testq.Dequeue() == 8 && testq.Count() == 0);
 
     }
 }
