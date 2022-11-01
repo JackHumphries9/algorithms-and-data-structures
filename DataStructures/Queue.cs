@@ -79,6 +79,6 @@ public class Queue<T>
 
     public String AsString()
     {
-        return String.Join(", ", this.array.Select(i => i.ToString()).ToArray());
+        return String.Join(", ", this.array.Select(i => i?.ToString()).ToArray());
     }
 }

@@ -4,14 +4,14 @@ namespace DataStructures;
 class Link<T>
 {
     private T data;
-    private Link<T> next;
+    private Link<T>? next;
 
     public Link(T item) //constructor with an item
     {
         this.data = item;
         this.next = null;
     }
-    public Link(T item, Link<T> list) //constructor with item and list
+    public Link(T item, Link<T>? list) //constructor with item and list
     {
         this.data = item;
         this.next = list;
@@ -23,7 +23,7 @@ class Link<T>
         get { return this.data; }
     }
 
-    public Link<T> Next //property for next
+    public Link<T>? Next //property for next
     {
         set { this.next = value; }
         get { return this.next; }
@@ -32,7 +32,7 @@ class Link<T>
 
 public class LinkedList<T> where T : IComparable
 {
-    private Link<T> list = null; //default value – empty list
+    private Link<T>? list = null; //default value – empty list
 
     public void AddItem(T item)
     {
@@ -42,7 +42,7 @@ public class LinkedList<T> where T : IComparable
     public void AppendItem(T item) //add item to front of list
     {
         Link<T> newItem = new Link<T>(item);
-        Link<T> temp = list;
+        Link<T>? temp = list;
 
         if (temp == null)
         {
@@ -61,7 +61,7 @@ public class LinkedList<T> where T : IComparable
 
     public string AsString() //write items to string and return
     {
-        Link<T> temp = list;
+        Link<T>? temp = list;
         string buffer = "[";
         int c = 0;
         int max = this.Length();
@@ -85,7 +85,7 @@ public class LinkedList<T> where T : IComparable
 
     public int Length() // returns number of items in list
     {
-        Link<T> temp = list;
+        Link<T>? temp = list;
         int count = 0;
         while (temp != null) // move one link and add 1 to count
         {
@@ -97,7 +97,7 @@ public class LinkedList<T> where T : IComparable
 
     public bool IsPresentItem(T item)
     {
-        Link<T> temp = list;
+        Link<T>? temp = list;
         bool flag = false;
         while (temp != null) // move one link and add 1 to count
         {
@@ -113,8 +113,8 @@ public class LinkedList<T> where T : IComparable
     }
     public void RemoveItem(T item)
     {
-        Link<T> current = list;
-        Link<T> prev = null;
+        Link<T>? current = list;
+        Link<T>? prev = null;
 
         while (current != null) // move one link and add 1 to count
         {
@@ -131,8 +131,8 @@ public class LinkedList<T> where T : IComparable
 
     public void InsertInOrder(T item)
     {
-        Link<T> temp = list;
-        Link<T> prev = null;
+        Link<T>? temp = list;
+        Link<T>? prev = null;
         if (list == null)
         {
             AddItem(item);
@@ -141,7 +141,7 @@ public class LinkedList<T> where T : IComparable
 
 
         while (temp != null)
-        { 
+        {
             if (temp.Data.CompareTo(item) > 0)
             {
                 temp = temp.Next;

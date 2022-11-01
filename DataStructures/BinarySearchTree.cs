@@ -12,11 +12,12 @@ public class BinarySearchTree<T> : BinaryTree<T> where T : IComparable
         insertItem(item, ref root);
     }
 
-    private void insertItem(T item, ref Node<T> tree)
+    private void insertItem(T item, ref Node<T>? tree)
     {
         if (tree == null)
         {
             this.root = new Node<T>(item);
+            return;
         }
 
         if (tree.Data.CompareTo(item) == 0)
